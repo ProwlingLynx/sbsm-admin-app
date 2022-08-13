@@ -1,28 +1,22 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 export const GoogleSignIn = () => {
   console.log("GoogleSignIn: ", process.env.REACT_APP_CLIENT_ID);
-  // return (
-  //   <div className="googleButton">
-  //   {/* <script src="https://accounts.google.com/gsi/client" ></script> */}
-  //     <div id="g_id_onload"
-  //        data-client_id={process.env.REACT_APP_CLIENT_ID}
-  //        data-login_uri={process.env.REACT_APP_REDIRECT_URI}
-  //        data-auto_prompt="false">
-  //     </div>
-  //     <div className="g_id_signin"
-  //        data-type="standard"
-  //        data-size="large"
-  //        data-theme="outline"
-  //        data-text="sign_in_with"
-  //        data-shape="rectangular"
-  //        data-logo_alignment="left">
-  //     </div>
-  //   </div>
-  // )
   useEffect(() => {
-  function handleCredentialResponse(response : any) {
-    console.log("Encoded JWT ID token: " + response.credential);
+  async function handleCredentialResponse(response : any) {
+    try{
+
+      console.log("Encoded JWT ID token: " + response.credential);
+      fetch(window.location.origin+"/verify/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(response.credential),
+      })
+    } catch(error) {
+      console.log(error);
+    };
   }
   google.accounts.id.initialize({
     client_id: process.env.REACT_APP_CLIENT_ID,
@@ -36,7 +30,7 @@ export const GoogleSignIn = () => {
   }, []);
   return(
     <div>
-      I rendered the button.
+      To proceed forward, please sign in with Google. Otherwise, you need to refresh the page.
     </div>
   )
 }
