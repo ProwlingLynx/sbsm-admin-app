@@ -1,7 +1,8 @@
 import express from "express";
 
-const router = express.Router();
+export const getRouter = express.Router();
 
-router.get("/cat", (req : express.Request, res : express.Response) => {
+getRouter.get("/cat", (req : express.Request, res : express.Response): void => {
+  console.log("The cat meowed!");
   res.send("Meow");
 });
