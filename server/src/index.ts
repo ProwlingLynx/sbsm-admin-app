@@ -6,7 +6,7 @@ import {getRouter} from "./routes"
 dotenv.config({ path: "../.env" });
 const app = express();
 
-app.use(express.static('../sbsm-admin-app/public'))
+app.use(express.static('../sbsm-admin-app/build'))
 app.use('/', getRouter);
 
 
