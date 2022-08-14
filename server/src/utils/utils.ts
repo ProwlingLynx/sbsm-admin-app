@@ -1,3 +1,4 @@
+import { NextFunction, RequestHandler } from 'express';
 import type { GetOptions, ExtendRequests, ExtendResponse } from './types';
 
 export const makeGetOptions: (name: string, email: string) => GetOptions =
@@ -16,7 +17,7 @@ export const makeGetOptions: (name: string, email: string) => GetOptions =
   return options;
 };
 
-export const allowCors: (req: ExtendRequests, res: ExtendResponse, next: Function) => void = (
+export const allowCors: RequestHandler= (
   req,
   res,
   next
