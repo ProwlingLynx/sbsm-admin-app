@@ -15,6 +15,7 @@ export interface DefaultParams {
 export interface ExtendRequests extends Express.Request {
   method: string;
   url: string;
+  get: (name: string) => string;
 }
 
 export interface ExtendResponse extends Express.Response {

@@ -21,16 +21,10 @@ export const allowCors: (req: ExtendRequests, res: ExtendResponse, next: Functio
   res,
   next
 ) => {
-  const isOptions = req.method.toLocaleLowerCase() === 'options';
-  if (isOptions) {
-    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'post');
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With");
-    // res.header('Access-Control-Allow-Headers', 'Authorization');
-    res.sendStatus(200);
-    return;
-  }
+    console.log("What is origin?", req.get('origin'));
+    res.header('Access-Control-Allow-Origin', req.get('Origin'));
+    res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With, Origin");
   console.log(`Current request: ${req.method} \nat url: ${req.url}`);
   next();
 };
