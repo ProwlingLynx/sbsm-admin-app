@@ -1,2 +1,2 @@
-export {getRouter} from './get';
-export {postRouter} from './post';
+export * from './get';
+export * from './post';
