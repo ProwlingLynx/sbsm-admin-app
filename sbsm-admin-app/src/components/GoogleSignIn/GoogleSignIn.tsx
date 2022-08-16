@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from "react"
-import { googleSignIn } from "../utils/googleHelper";
+import { googleSignIn } from "../utils";
 
 interface Props {
   setLocation: Function;

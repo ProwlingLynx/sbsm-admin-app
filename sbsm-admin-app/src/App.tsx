@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { Login } from './pages';
-import { googleSignIn } from './components/utils/googleHelper';
+import { googleSignIn } from './components';
 function App() {
   const [location, setLocation] = useState('login');
   googleSignIn.setLocationChanger(setLocation);
