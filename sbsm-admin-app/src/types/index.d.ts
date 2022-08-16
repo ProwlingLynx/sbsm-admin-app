@@ -4,4 +4,6 @@ declare global {
   var google: undefined | any;
 }
 
-export {};
+export interface Users {
+
+};
