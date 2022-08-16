@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       Hello World!
+      <div id="buttonDiv"></div>
       <GoogleSignIn />
     </div>
   );

@@ -24,17 +24,19 @@ export const GoogleSignIn = () => {
     }
     google.accounts.id.initialize({
       client_id: process.env.REACT_APP_CLIENT_ID,
+      signin: "Sign in with Google",
+      // login_uri: "https://localhost:4001/verify", // TODO: change this to production URL
       callback: handleCredentialResponse
     });
 
     //If you prefer the button then uncomment the function below and comment out the pormpt method instead.
 
-    // google.accounts.id.renderButton(
-    //   document.getElementById("buttonDiv"),
-    //   { theme: "outline", size: "large" }  // customization attributes
-    // );
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" }  // customization attributes
+    );
 
-    google.accounts.id.prompt(); // also display the One Tap dialog
+    // google.accounts.id.prompt(); // also display the One Tap dialog
   }, []);
 
 
