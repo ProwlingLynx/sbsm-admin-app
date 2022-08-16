@@ -1,35 +1,11 @@
 import { useEffect } from "react"
+import { initializeOptions } from "./helpers";
 
 export const GoogleSignIn = () => {
 
   useEffect(() => {
-    async function handleCredentialResponse(response: any) {
-      try {
-
-        let url = window.location.origin + "/verify/user";
-        if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
-          url = "http://localhost:4001/verify/user";
-          console.log("Encoded JWT ID token: " + response.credential);
-        }
-        const res = await fetch(url, {
-          method: "POST",
-          headers: {
-            "authorization": "Bearer " + response.credential,
-          },
-        })
-        console.log("Response: " + res);
-      } catch (error) {
-        console.log(error);
-      };
-    }
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_CLIENT_ID,
-      signin: "Sign in with Google",
-      // login_uri: "https://localhost:4001/verify", // TODO: change this to production URL
-      callback: handleCredentialResponse
-    });
-
-    //If you prefer the button then uncomment the function below and comment out the pormpt method instead.
+    if (google === undefined) throw new Error("Google is not defined");
+    google.accounts.id.initialize(initializeOptions);
 
     google.accounts.id.renderButton(
       document.getElementById("buttonDiv"),
@@ -42,6 +18,7 @@ export const GoogleSignIn = () => {
 
   return (
     <div>
+      <div id="buttonDiv"></div>
       To proceed forward, please sign in with Google. Otherwise, you need to refresh the page.
     </div>
   )
