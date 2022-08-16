@@ -1,14 +1,16 @@
 import './App.css';
-import { GoogleSignIn } from './components/GoogleSignIn';
-
+import { useState } from 'react';
+import { Login } from './pages';
+import { googleSignIn } from './components/utils/googleHelper';
 function App() {
-
-  return (
-    <div className="App">
-      Hello World!
-      <GoogleSignIn />
-    </div>
-  );
-}
+  const [location, setLocation] = useState('login');
+  googleSignIn.setLocationChanger(setLocation);
+  switch(location) {
+    case 'login':
+      return (<Login location={location} setLocation={setLocation}/>);
+    default:
+      return (<div>404</div>);
+  }
+};
 
 export default App;

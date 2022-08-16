@@ -1,18 +1,15 @@
-import { useEffect } from "react"
-import { initializeOptions } from "./helpers";
+import { ReactElement, useEffect } from "react"
+import { googleSignIn } from "../utils/googleHelper";
 
-export const GoogleSignIn = () => {
+interface Props {
+  setLocation: Function;
+}
+export const GoogleSignIn: (args0:Props) => ReactElement = ({setLocation}) => {
 
   useEffect(() => {
     if (google === undefined) throw new Error("Google is not defined");
-    google.accounts.id.initialize(initializeOptions);
-
-    google.accounts.id.renderButton(
-      document.getElementById("buttonDiv"),
-      { theme: "outline", size: "large" }  // customization attributes
-    );
-
-    // google.accounts.id.prompt(); // also display the One Tap dialog
+    googleSignIn.intializeGoogle();
+    googleSignIn.renderButton();
   }, []);
 
 
