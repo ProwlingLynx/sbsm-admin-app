@@ -6,11 +6,9 @@ export const postRouter = Router();
 
 postRouter.post("/verify/user", async (req, res) => {
   try{
-    console.log("verify user called: ", req.get("authorization"));
-    console.log("Verifying user: ", req.header);
-    const user = await verify(req.get("authorization") as string);
-    console.log(user);
-    const data = await getGas(user);
+    const token = req.get("authorization")?.split(" ")[1]
+    const user = await verify(token);
+    const {data} = await getGas(user);
     res.send(data).status(200);
   } catch (error) {
     console.log(error);
