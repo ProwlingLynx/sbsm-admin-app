@@ -4,7 +4,13 @@
   border-width: 1px;
   font-size: 16px;
 }
+body {
+  background-color: #F5F5F5;
+}
 
+body * {
+  background-color: #ffffff;
+}
 * {
   font: roboto;
   font-weight: 700;
