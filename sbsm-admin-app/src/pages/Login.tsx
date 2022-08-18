@@ -7,7 +7,6 @@ interface Props {
 export const Login: (arg0:Props) => ReactElement = ({location, setLocation}) => {
   return (
     <div className="App">
-      Hello World!
       <GoogleSignIn setLocation={setLocation}/>
     </div>
   )
