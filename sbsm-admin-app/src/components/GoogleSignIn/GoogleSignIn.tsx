@@ -19,12 +19,8 @@ export const GoogleSignIn: (args0:Props) => ReactElement = ({setLocation}) => {
 
 
   return (
-    <div className={styles.googleContainer}>
-      <h1>Welcome!</h1>
-      <p>
-      This is SBMS Admin App. Please sign in with your Google account.
-      </p>
+    <>
       <div id="buttonDiv"></div>
-    </div>
+    </>
   )
 }
