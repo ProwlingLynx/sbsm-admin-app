@@ -1,21 +1,18 @@
-import express from "express";
+import express, { Request } from "express";
 import {makeGetOptions} from "../utils";
 import axios from "axios";
-
+import { verify } from "./google";
+import {fakeData} from "./fake";
 export const getRouter = express.Router();
 
-getRouter.get("/cat", (req : express.Request, res : express.Response): void => {
-  console.log("The cat meowed!");
-  res.send("Meow");
-});
-
-getRouter.get("/fakeGas", async (req : express.Request, res : express.Response): Promise<void> => {
-  const options = makeGetOptions("something fakeName", "something@fakeMail.com");
-  try {
-    const {data} = await axios(options);
-    console.log("this was data: ", data);
-    res.send(data);
-  } catch (err) {
-    console.log(err);
+getRouter.get("/get/students", async (req, res) => {
+  try{
+    const token = req.get("authorization")?.split(" ")[1]
+    const user = await verify(token); // can change this to in house server side verification later.
+    const {data} = fakeData as any; // Connect Gas logic here.
+  } catch (error) {
+    console.log(error);
+    res.status(410).send("Invalid Token");
   }
-});
+
+})
