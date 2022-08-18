@@ -39,7 +39,6 @@ class GoogleSignIn {
           "authorization": "Bearer " + response.credential,
         },
       })
-      console.log("Response: " + res);
       this.changeLocations("student list");
     } catch (error) {
       console.log(error);

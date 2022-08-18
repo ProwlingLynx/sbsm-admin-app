@@ -15,7 +15,6 @@ if (process.env.MODE === 'development') {
 app.use(express.static('../sbsm-admin-app/build'));
 app.use('/', getRouter);
 app.use('/', postRouter);
-
 app.listen(process.env.PORT, (): void => {
   console.log(`Server listening on port: ${process.env.PORT}`);
 });

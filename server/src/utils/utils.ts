@@ -1,5 +1,5 @@
-import { NextFunction, RequestHandler } from 'express';
-import type { GetOptions, ExtendRequests, ExtendResponse } from './types';
+import { RequestHandler } from 'express';
+import type { GetOptions } from './types';
 
 export const makeGetOptions: (name: string, email: string) => GetOptions =
   (name, email) => {
