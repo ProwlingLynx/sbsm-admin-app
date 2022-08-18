@@ -1,4 +1,4 @@
-import { HeaderBar } from "../components";
+import { HeaderBar } from "../../components";
 interface props {
   location: string;
   setLocation: (location: string) => void;

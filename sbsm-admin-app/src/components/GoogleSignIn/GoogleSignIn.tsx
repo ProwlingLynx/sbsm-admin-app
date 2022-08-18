@@ -7,9 +7,14 @@ interface Props {
 export const GoogleSignIn: (args0:Props) => ReactElement = ({setLocation}) => {
 
   useEffect(() => {
-    if (google === undefined) throw new Error("Google is not defined");
-    googleSignIn.intializeGoogle();
-    googleSignIn.renderButton();
+    try {
+      if (google === undefined) throw new Error("Google is not defined");
+      googleSignIn.intializeGoogle();
+      googleSignIn.renderButton();
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }, []);
 
 

@@ -1,3 +1,5 @@
+import { error } from "console";
+
 class GoogleSignIn {
   readonly client_id: string | undefined;
   readonly signin: string;
@@ -38,10 +40,12 @@ class GoogleSignIn {
         headers: {
           "authorization": "Bearer " + response.credential,
         },
-      })
+      });
+      if (res.status >= 400) throw new Error("Not Authorized");
       this.changeLocations("student list");
     } catch (error) {
       console.log(error);
+      this.changeLocations("Not Authorized");
     };
   }
   setLocationChanger (setLocation:(arg0:string)=>void) {
