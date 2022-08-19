@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 15vh;
+  width: 100%;
+}
+.search {
+  padding: .5rem 0rem .5rem 0rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 90vw;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: left;
+
+  height: 15vh;
+  width: 100%;
+}
+.placeholder {
+  width: 2rem;
+  height: 2rem;
+  content: "  ";
+  background-color: #F6ABB6;
+
+}
+.studentName {
+  width: 50vw;
+}
+.profile h1 {
+  padding: 1rem 0 0 0;
+  margin: 0rem 0 0 0;
+  text-align: center;
+}
+.keyNum {
+  width: 10vw;
+}
