@@ -1,5 +1,5 @@
 import { Student } from "./Student";
-
+import style from "./Student.module.css";
 
 interface props {
   globalState: UserObj[];
@@ -14,7 +14,7 @@ export const MakeStudentList = ({ globalState }: props) => {
     return (<Student user={user} key={user["Key Number"] + " Student"} />);
   });
   return (
-    <table>
+    <table className={style.table}>
       <colgroup span={4}></colgroup>
       <thead>
         <tr>

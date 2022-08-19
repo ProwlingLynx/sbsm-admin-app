@@ -1,0 +1,16 @@
+.table {
+  text-align: center;
+  vertical-align: center;
+  width: 100vw;
+}
+.table th {
+  height: 3rem;
+  border-bottom: 1px solid #C8C5C5;
+}
+.table td {
+  height: 3rem;
+  border-bottom: 1px solid #C8C5C5;
+}
+.table tr {
+  height: 3rem;
+}
