@@ -17,4 +17,6 @@ declare interface UserObj {
     'Cumulative Grade': number;
     'Start Date': string;
     'Tuition Due': number;
+    'status': boolean;
+    'lastClockIn': string;
 }

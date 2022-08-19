@@ -1,14 +1,19 @@
 import { HeaderBar } from "../../components";
+import { MakeStudentList } from "../../components/MakeStudentList";
 interface props {
   location: string;
   setLocation: (location: string) => void;
+  setGlobalState: (args0: UserObj[]) => void;
+  globalState: UserObj[];
+  focusedStudent: null | UserObj;
 }
-export const StudentList = ({location, setLocation}: props)  => {
+export const StudentList = ({location, setLocation, globalState, setGlobalState}: props)  => {
+
   return (
     <div className="student-list">
       <HeaderBar location={location}/>
       <div className="student-list-content">
-        <h1>TODO: make student list components</h1>
+        <MakeStudentList globalState={globalState}/>
       </div>
     </div>
   )
