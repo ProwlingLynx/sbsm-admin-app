@@ -32,7 +32,7 @@ function App() {
         setLocation('error');
       })
     }
-  }, [globalState, location]);
+  }, [globalState, location, focusedStudent]);
 
   try {
     switch(location) {
