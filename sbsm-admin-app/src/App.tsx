@@ -27,7 +27,7 @@ function App() {
         setLocation('error');
       })
     }
-  }, [location]);
+  }, [globalState, location]);
 
   try {
     switch(location) {
