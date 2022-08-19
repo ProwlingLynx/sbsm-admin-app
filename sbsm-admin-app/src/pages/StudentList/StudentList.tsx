@@ -7,14 +7,15 @@ interface props {
   setGlobalState: (args0: UserObj[]) => void;
   globalState: UserObj[];
   focusedStudent: null | UserObj;
+  setFocusedStudent: (focusedStudent: null | UserObj) => void;
 }
-export const StudentList = ({location, setLocation, globalState, setGlobalState}: props)  => {
+export const StudentList = ({location, setLocation, globalState, setGlobalState, setFocusedStudent, focusedStudent}: props)  => {
 
   return (
     <div className={styles.studentList}>
-      <HeaderBar location={location}/>
+      <HeaderBar location={location} focusedStudent={focusedStudent}/>
       <div className={styles.spacer}></div>
-        <MakeStudentList globalState={globalState}/>
+        <MakeStudentList globalState={globalState} setFocusedStudent={setFocusedStudent}/>
     </div>
   )
 };

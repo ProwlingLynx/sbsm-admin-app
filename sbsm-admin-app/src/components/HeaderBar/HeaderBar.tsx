@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 import styles from "./styles.module.css";
 
-export const HeaderBar = ({location} : {location: string;}) => {
+export const HeaderBar = ({location, focusedStudent} : {location: string; focusedStudent: UserObj | null}) => {
   const [search, setSearch] = useState("");
   let content : null | ReactElement = null;
   if (location === "student list") {
@@ -16,7 +16,12 @@ export const HeaderBar = ({location} : {location: string;}) => {
       console.log("I submitted: " + search)
     }}/>);
   } else {
-    content = (<h1>Rick Roller the first</h1>)
+    content = (
+      <>
+        <h1>{focusedStudent?.Name}</h1>
+        <span>{focusedStudent === null ? null : focusedStudent["Key Number"]}</span>
+      </>
+    )
   }
 
   return (

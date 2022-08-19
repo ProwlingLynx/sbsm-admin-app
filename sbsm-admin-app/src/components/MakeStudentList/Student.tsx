@@ -1,7 +1,8 @@
 interface props {
   user: UserObj;
+  setFocusedStudent: (focusedStudent: null | UserObj) => void;
 }
-export const Student = ({user}: props) => {
+export const Student = ({user, setFocusedStudent}: props) => {
   if (user["Key Number"] === undefined) return null;
   let isClockedIn = user.status;
   if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
@@ -10,7 +11,11 @@ export const Student = ({user}: props) => {
   const fakeDate = new Date();
   return (
     <>
-      <tr>
+      <tr onClick={(e)=> {
+        e.preventDefault();
+        console.log("I clicked on ", user["Key Number"]);
+        setFocusedStudent(user);
+      }}>
         <td>{user["Key Number"]}</td>
         <td>{user.Name}</td>
         <td>{user.status || isClockedIn}</td>

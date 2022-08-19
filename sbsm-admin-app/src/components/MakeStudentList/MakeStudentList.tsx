@@ -3,15 +3,20 @@ import style from "./Student.module.css";
 
 interface props {
   globalState: UserObj[];
+  setFocusedStudent: (focusedStudent: null | UserObj) => void;
 }
 
-export const MakeStudentList = ({ globalState }: props) => {
+export const MakeStudentList = ({ globalState, setFocusedStudent}: props) => {
   console.log(globalState);
   if (!Array.isArray(globalState)) {
     return <div>No data</div>;
   }
   const tabledUsers = globalState.map((user) => {
-    return (<Student user={user} key={user["Key Number"] + " Student"} />);
+    return (<Student
+      user={user}
+      key={user["Key Number"] + " Student"}
+      setFocusedStudent={setFocusedStudent}
+      />);
   });
   return (
     <table className={style.table}>
