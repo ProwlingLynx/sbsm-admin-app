@@ -14,12 +14,13 @@ function App() {
 
   useEffect(() => {
     const token = googleSignIn.getToken();
-
+    console.log("What is location? ", location);
     if (token === null) return setLocation('login');
     console.log("Our globals ", globalState)
     if (globalState[0]['Key Number'] === undefined) {
       console.log("We are getting the data");
-      getStudentData(token, setGlobalState).then((data) => {
+      getStudentData(token, setGlobalState)
+      .then((data) => {
         console.log("Data is ", data);
         setGlobalState(data);
       })
@@ -27,6 +28,7 @@ function App() {
         console.log("Error is ", err);
         setLocation('error');
       })
+      return;
     }
     if (focusedStudent === null) {
       setLocation('student profile');

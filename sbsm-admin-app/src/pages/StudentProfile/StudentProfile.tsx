@@ -7,7 +7,10 @@ interface props {
 }
 
 export const StudentProfile = ({ focusedStudent, setLocation }: props) => {
-  if (focusedStudent === null) return null;
+  if (focusedStudent === null) {
+    setLocation("student list");
+    return null;
+  };
   return (
     <div className={styles.pageWrapper}>
       <StudentHeader location="student profile" focusedStudent={focusedStudent} />
