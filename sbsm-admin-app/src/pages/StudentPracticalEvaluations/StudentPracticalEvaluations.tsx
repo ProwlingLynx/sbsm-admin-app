@@ -20,7 +20,7 @@ export const StudentPracticalEvaluations = ({ focusedStudent, setLocation }: pro
           <ClearButton
             innerText="Facials"
             location="student practical evaluations"
-            nextLocation="student facials"
+            nextLocation="facials"
             setLocation={setLocation}
           />
           {/* TODO: add route for data... */}

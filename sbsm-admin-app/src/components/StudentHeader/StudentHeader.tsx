@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-
+// TODO: remove all reference to location in props. Location is not used in this component anymore.
 export const StudentHeader = ({location, focusedStudent} : {location: string; focusedStudent: UserObj | null}) => {
       return (
       <div className={styles.profile}>
