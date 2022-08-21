@@ -51,6 +51,7 @@ function App() {
       case 'student profile':
         return (<StudentProfile
         focusedStudent={focusedStudent}
+        setLocation={setLocation}
         />)
       default:
         throw new Error(`Unknown location: ${location}`);
