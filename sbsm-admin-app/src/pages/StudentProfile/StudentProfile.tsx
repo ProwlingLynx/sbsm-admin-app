@@ -19,25 +19,25 @@ export const StudentProfile = ({ focusedStudent, setLocation }: props) => {
             nextLocation="student grades"
             setLocation={setLocation}
           />
-          <h3>{focusedStudent["Theory Grade"]}</h3>
+          <h3>{focusedStudent["Theory Grade"] * 100 + "%"}</h3>
         </div>
         <div className={styles.buttonWrapper}>
           <ClearButton
-            innerText="Grades"
+            innerText="Time Clock"
             location="student profile"
-            nextLocation="student grades"
+            nextLocation="student time clock"
             setLocation={setLocation}
           />
-          <h3>{focusedStudent["Theory Grade"]}</h3>
+          <h3>{focusedStudent["Actual Clocked Total Hours"] + " hrs"}</h3>
         </div>
         <div className={styles.buttonWrapper}>
           <ClearButton
-            innerText="Grades"
+            innerText="Practical Clock"
             location="student profile"
-            nextLocation="student grades"
+            nextLocation="student practical clock"
             setLocation={setLocation}
           />
-          <h3>{focusedStudent["Theory Grade"]}</h3>
+          <h3>{focusedStudent["Actual Practical Clocked Hours"] + " hrs"}</h3>
         </div>
       </div>
       <div>
