@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Login, StudentList, ErrorPage, StudentProfile } from './pages';
+import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades } from './pages';
 import { getStudentData, googleSignIn } from './components';
 function App() {
   const [location, setLocation] = useState('login');
@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const token = googleSignIn.getToken();
 
-    if (focusedStudent !== null) {
+    if (focusedStudent === null) {
       setLocation('student profile');
     } else if (location === 'student list') {
       setFocusedStudent(null);
@@ -50,6 +50,11 @@ function App() {
           setGlobalState={setGlobalState}/>);
       case 'student profile':
         return (<StudentProfile
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />)
+      case 'student grades':
+        return (<StudentGrades
         focusedStudent={focusedStudent}
         setLocation={setLocation}
         />)
