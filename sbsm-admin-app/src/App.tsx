@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades } from './pages';
+import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests } from './pages';
 import { getStudentData, googleSignIn } from './components';
 function App() {
   const [location, setLocation] = useState('login');
@@ -15,13 +15,7 @@ function App() {
   useEffect(() => {
     const token = googleSignIn.getToken();
 
-    if (focusedStudent === null) {
-      setLocation('student profile');
-    } else if (location === 'student list') {
-      setFocusedStudent(null);
-    }
-
-    if (token === null) return;
+    if (token === null) return setLocation('login');
     console.log("Our globals ", globalState)
     if (globalState[0]['Key Number'] === undefined) {
       console.log("We are getting the data");
@@ -34,11 +28,17 @@ function App() {
         setLocation('error');
       })
     }
+    if (focusedStudent === null) {
+      setLocation('student profile');
+    } else if (location === 'student list') {
+      setFocusedStudent(null);
+    }
   }, [globalState, location, focusedStudent]);
 
   try {
     switch(location) {
       case 'login':
+        console.log("We are in the login page", location);
         return (<Login location={location} setLocation={setLocation} setGlobalState={setGlobalState}/>);
       case 'student list':
         return (<StudentList
@@ -52,12 +52,17 @@ function App() {
         return (<StudentProfile
         focusedStudent={focusedStudent}
         setLocation={setLocation}
-        />)
+        />);
       case 'student grades':
         return (<StudentGrades
         focusedStudent={focusedStudent}
         setLocation={setLocation}
-        />)
+        />);
+      case 'student tests':
+        return (<StudentTests
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
       default:
         throw new Error(`Unknown location: ${location}`);
     }
