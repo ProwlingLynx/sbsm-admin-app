@@ -15,7 +15,7 @@ export const StudentList = ({location, setLocation, globalState, setGlobalState,
     <div className={styles.studentList}>
       <HeaderSearch focusedStudent={focusedStudent}/>
       <div className={styles.spacer}></div>
-        <MakeStudentList globalState={globalState} setFocusedStudent={setFocusedStudent}/>
+        <MakeStudentList globalState={globalState} setFocusedStudent={setFocusedStudent} setLocation={setLocation}/>
     </div>
   )
 };

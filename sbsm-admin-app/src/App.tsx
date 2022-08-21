@@ -30,9 +30,7 @@ function App() {
       })
       return;
     }
-    if (focusedStudent === null) {
-      setLocation('student profile');
-    } else if (location === 'student list') {
+    if (location === 'student list') {
       setFocusedStudent(null);
     }
   }, [globalState, location, focusedStudent]);

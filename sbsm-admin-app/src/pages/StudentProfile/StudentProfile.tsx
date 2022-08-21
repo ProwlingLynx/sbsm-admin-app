@@ -8,8 +8,9 @@ interface props {
 
 export const StudentProfile = ({ focusedStudent, setLocation }: props) => {
   if (focusedStudent === null) {
+
     setLocation("student list");
-    return null;
+    return <div>Loading...</div>;
   };
   return (
     <div className={styles.pageWrapper}>
