@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests } from './pages';
+import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests, StudentPracticalEvaluations } from './pages';
 import { getStudentData, googleSignIn } from './components';
 function App() {
   const [location, setLocation] = useState('login');
@@ -55,6 +55,11 @@ function App() {
         />);
       case 'student grades':
         return (<StudentGrades
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student practical evaluations':
+        return (<StudentPracticalEvaluations
         focusedStudent={focusedStudent}
         setLocation={setLocation}
         />);
