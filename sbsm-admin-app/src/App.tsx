@@ -14,11 +14,13 @@ function App() {
 
   useEffect(() => {
     const token = googleSignIn.getToken();
+
     if (focusedStudent !== null) {
       setLocation('student profile');
     } else if (location === 'student list') {
       setFocusedStudent(null);
     }
+
     if (token === null) return;
     console.log("Our globals ", globalState)
     if (globalState[0]['Key Number'] === undefined) {
