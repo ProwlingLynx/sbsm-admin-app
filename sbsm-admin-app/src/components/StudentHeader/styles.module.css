@@ -1,9 +1,7 @@
 .profile{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: left;
-
+  justify-content: space-between;
   height: 15vh;
   width: 100%;
 }
@@ -15,12 +13,13 @@
 
 }
 .studentName {
-  width: 50vw;
+  min-width: fit-content;
+  max-width: 50vw;
 }
 .profile h1 {
-  padding: 1rem 0 0 0;
-  margin: 0rem 0 0 0;
-  text-align: center;
+  padding: 0rem;
+  margin: 8vh 1rem 1.4rem auto;
+  height: fit-content;
 }
 .keyNum {
   width: 10vw;

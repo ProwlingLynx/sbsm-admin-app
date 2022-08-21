@@ -11,6 +11,10 @@ export const StudentGrades = ({ focusedStudent, setLocation }: props) => {
   return (
     <div className={styles.pageWrapper}>
       <StudentHeader location="student profile" focusedStudent={focusedStudent} />
+      <div className={styles.headerWrapper}>
+        <h2>Grades</h2>
+        <h2>{focusedStudent["Cumulative Grade"] * 100 + "%"}</h2>
+      </div>
       <div>
         <div className={styles.buttonWrapper}>
           <ClearButton
