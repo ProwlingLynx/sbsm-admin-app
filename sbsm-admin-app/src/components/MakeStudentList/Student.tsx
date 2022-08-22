@@ -1,8 +1,9 @@
 interface props {
   user: UserObj;
   setFocusedStudent: (focusedStudent: null | UserObj) => void;
+  setLocation: (location: string) => void;
 }
-export const Student = ({user, setFocusedStudent}: props) => {
+export const Student = ({user, setFocusedStudent, setLocation}: props) => {
   if (user["Key Number"] === undefined) return null;
   let isClockedIn = user.status;
   if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
@@ -15,6 +16,7 @@ export const Student = ({user, setFocusedStudent}: props) => {
         e.preventDefault();
         console.log("I clicked on ", user["Key Number"]);
         setFocusedStudent(user);
+        setLocation("student profile");
       }}>
         <td>{user["Key Number"]}</td>
         <td>{user.Name}</td>

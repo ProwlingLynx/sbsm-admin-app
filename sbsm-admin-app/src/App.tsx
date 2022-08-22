@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Login, StudentList, ErrorPage, StudentProfile } from './pages';
+import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests, StudentPracticalEvaluations, Facials, TimeClock, PracticalClock, Evaluation } from './pages';
 import { getStudentData, googleSignIn } from './components';
 function App() {
   const [location, setLocation] = useState('login');
@@ -14,16 +14,13 @@ function App() {
 
   useEffect(() => {
     const token = googleSignIn.getToken();
-    if (focusedStudent !== null) {
-      setLocation('student profile');
-    } else if (location === 'student list') {
-      setFocusedStudent(null);
-    }
-    if (token === null) return;
+    console.log("What is location? ", location);
+    if (token === null) return setLocation('login');
     console.log("Our globals ", globalState)
     if (globalState[0]['Key Number'] === undefined) {
       console.log("We are getting the data");
-      getStudentData(token, setGlobalState).then((data) => {
+      getStudentData(token, setGlobalState)
+      .then((data) => {
         console.log("Data is ", data);
         setGlobalState(data);
       })
@@ -31,12 +28,17 @@ function App() {
         console.log("Error is ", err);
         setLocation('error');
       })
+      return;
+    }
+    if (location === 'student list') {
+      setFocusedStudent(null);
     }
   }, [globalState, location, focusedStudent]);
 
   try {
     switch(location) {
       case 'login':
+        console.log("We are in the login page", location);
         return (<Login location={location} setLocation={setLocation} setGlobalState={setGlobalState}/>);
       case 'student list':
         return (<StudentList
@@ -49,7 +51,43 @@ function App() {
       case 'student profile':
         return (<StudentProfile
         focusedStudent={focusedStudent}
-        />)
+        setLocation={setLocation}
+        />);
+      case 'student grades':
+        return (<StudentGrades
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student practical evaluations':
+        return (<StudentPracticalEvaluations
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'facials':
+        return (<Facials
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'evaluation':
+        return (<Evaluation
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student tests':
+        return (<StudentTests
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student time clock':
+        return (<TimeClock
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student practical clock':
+        return (<PracticalClock
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
       default:
         throw new Error(`Unknown location: ${location}`);
     }

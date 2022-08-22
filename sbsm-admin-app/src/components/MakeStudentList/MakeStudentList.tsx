@@ -3,10 +3,11 @@ import style from "./Student.module.css";
 
 interface props {
   globalState: UserObj[];
+  setLocation: (location: string) => void;
   setFocusedStudent: (focusedStudent: null | UserObj) => void;
 }
 
-export const MakeStudentList = ({ globalState, setFocusedStudent}: props) => {
+export const MakeStudentList = ({ globalState, setLocation, setFocusedStudent}: props) => {
   console.log(globalState);
   if (!Array.isArray(globalState)) {
     return <div>No data</div>;
@@ -16,6 +17,7 @@ export const MakeStudentList = ({ globalState, setFocusedStudent}: props) => {
       user={user}
       key={user["Key Number"] + " Student"}
       setFocusedStudent={setFocusedStudent}
+      setLocation={setLocation}
       />);
   });
   return (

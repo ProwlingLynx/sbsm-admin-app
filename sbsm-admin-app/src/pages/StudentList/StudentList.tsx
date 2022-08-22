@@ -1,4 +1,4 @@
-import { HeaderBar } from "../../components";
+import { HeaderSearch } from "../../components";
 import { MakeStudentList } from "../../components/MakeStudentList";
 import styles from "./StudentList.module.css";
 interface props {
@@ -13,9 +13,9 @@ export const StudentList = ({location, setLocation, globalState, setGlobalState,
 
   return (
     <div className={styles.studentList}>
-      <HeaderBar location={location} focusedStudent={focusedStudent}/>
+      <HeaderSearch focusedStudent={focusedStudent}/>
       <div className={styles.spacer}></div>
-        <MakeStudentList globalState={globalState} setFocusedStudent={setFocusedStudent}/>
+        <MakeStudentList globalState={globalState} setFocusedStudent={setFocusedStudent} setLocation={setLocation}/>
     </div>
   )
 };

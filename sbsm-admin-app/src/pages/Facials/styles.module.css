@@ -1,0 +1,31 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  width: 100vw;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.buttonWrapper h3 {
+  margin-right: 1rem;
+}
+.headerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #EFEFEF;
+  width: 100vw;
+}
+.headerWrapper h2 {
+  background-color: #EFEFEF;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
