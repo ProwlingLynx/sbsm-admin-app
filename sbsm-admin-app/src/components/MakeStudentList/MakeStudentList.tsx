@@ -8,7 +8,6 @@ interface props {
 }
 
 export const MakeStudentList = ({ globalState, setLocation, setFocusedStudent}: props) => {
-  console.log(globalState);
   if (!Array.isArray(globalState)) {
     return <div>No data</div>;
   }

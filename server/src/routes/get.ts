@@ -8,7 +8,6 @@ export const getRouter = express.Router();
 getRouter.get("/get/students", async (req, res) => {
   try{
     if (process.env.MODE === "development" || process.env.MODE === "test") {
-      console.log(fakeData);
       res.json(fakeData).status(200);
       return;
     }

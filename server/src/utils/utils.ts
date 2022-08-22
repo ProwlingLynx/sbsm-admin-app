@@ -22,10 +22,8 @@ export const allowCors: RequestHandler= (
   res,
   next
 ) => {
-    console.log("What is origin?", req.get('origin'));
     res.header('Access-Control-Allow-Origin', req.get('Origin'));
     res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With, Origin");
-  console.log(`Current request: ${req.method} \nat url: ${req.url}`);
   next();
 };

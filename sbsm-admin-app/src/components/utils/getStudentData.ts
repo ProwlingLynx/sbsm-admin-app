@@ -14,10 +14,7 @@ export const getStudentData : setGlobalStateHook = async (token, callback) => {
       },
     });
     if (res.status >= 400) throw new Error("Not Authorized");
-    // console.log(res.json());
-    console.log(res);
     const data = res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

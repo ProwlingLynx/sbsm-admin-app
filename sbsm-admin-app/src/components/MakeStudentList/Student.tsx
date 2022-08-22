@@ -14,7 +14,6 @@ export const Student = ({user, setFocusedStudent, setLocation}: props) => {
     <>
       <tr onClick={(e)=> {
         e.preventDefault();
-        console.log("I clicked on ", user["Key Number"]);
         setFocusedStudent(user);
         setLocation("student profile");
       }}>
