@@ -14,7 +14,6 @@ class GoogleSignIn {
       process.env.NODE_ENV === 'development' ? undefined : 'https://localhost:4001/verify';
     this.url = window.location.origin + '/verify/user';
     this.changeLocations = (param) => {
-      console.log('Did not change location', param);
     };
     if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
       this.url = 'http://localhost:4001/verify/user';
@@ -37,7 +36,6 @@ class GoogleSignIn {
   }
   async sendCredentialsToServer(response: any) {
     try {
-      console.log('Encoded JWT ID token: ' + response.credential);
       this.token = response.credential;
       const res = await fetch(this.url, {
         method: 'POST',
@@ -45,7 +43,6 @@ class GoogleSignIn {
           authorization: 'Bearer ' + response.credential,
         },
       });
-      console.log("We is here ", res.status, this.changeLocations);
       if (res.status >= 400) throw new Error('Not Authorized');
       this.changeLocations('student list');
     } catch (error) {

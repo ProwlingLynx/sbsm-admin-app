@@ -14,14 +14,10 @@ function App() {
 
   useEffect(() => {
     const token = googleSignIn.getToken();
-    console.log("What is location? ", location);
     if (token === null) return setLocation('login');
-    console.log("Our globals ", globalState)
     if (globalState[0]['Key Number'] === undefined) {
-      console.log("We are getting the data");
       getStudentData(token, setGlobalState)
       .then((data) => {
-        console.log("Data is ", data);
         setGlobalState(data);
       })
       .catch((err) => {
@@ -38,7 +34,6 @@ function App() {
   try {
     switch(location) {
       case 'login':
-        console.log("We are in the login page", location);
         return (<Login location={location} setLocation={setLocation} setGlobalState={setGlobalState}/>);
       case 'student list':
         return (<StudentList
