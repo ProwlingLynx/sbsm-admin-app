@@ -1,5 +1,6 @@
 import { ReactElement, useEffect } from "react"
 import { googleSignIn } from "../utils";
+import styles from "./styles.module.css";
 interface Props {
   setLocation: Function;
 }
@@ -19,7 +20,7 @@ export const GoogleSignIn: (args0:Props) => ReactElement = ({setLocation}) => {
 
   return (
     <>
-      <div id="buttonDiv"></div>
+      <div className={styles.googleContainer} id="buttonDiv"></div>
     </>
   )
 }
