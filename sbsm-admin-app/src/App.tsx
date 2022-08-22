@@ -1,8 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests, StudentPracticalEvaluations, Facials } from './pages';
+import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests, StudentPracticalEvaluations, Facials, TimeClock, PracticalClock, Evaluation } from './pages';
 import { getStudentData, googleSignIn } from './components';
-import { Evaluation } from './pages/Evaluation/Evaluation';
 function App() {
   const [location, setLocation] = useState('login');
   /*
@@ -76,6 +75,16 @@ function App() {
         />);
       case 'student tests':
         return (<StudentTests
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student time clock':
+        return (<TimeClock
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'student practical clock':
+        return (<PracticalClock
         focusedStudent={focusedStudent}
         setLocation={setLocation}
         />);
