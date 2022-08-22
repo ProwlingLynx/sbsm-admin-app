@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Login, StudentList, ErrorPage, StudentProfile, StudentGrades, StudentTests, StudentPracticalEvaluations, Facials } from './pages';
 import { getStudentData, googleSignIn } from './components';
+import { Evaluation } from './pages/Evaluation/Evaluation';
 function App() {
   const [location, setLocation] = useState('login');
   /*
@@ -65,6 +66,11 @@ function App() {
         />);
       case 'facials':
         return (<Facials
+        focusedStudent={focusedStudent}
+        setLocation={setLocation}
+        />);
+      case 'evaluation':
+        return (<Evaluation
         focusedStudent={focusedStudent}
         setLocation={setLocation}
         />);
